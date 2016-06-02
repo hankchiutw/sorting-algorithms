@@ -16,26 +16,29 @@
 
 </head>
 <body>
-    <p>
-        <span>array size:</span><input type='text' id='arraySize' value='10' onkeydown='tryRun(event)'></input>
-    </p>
-    <p>
-        <input type='button' onclick='run()' value='RUN!'></input>
-    </p>
-    <p>
-        <span class='status'>bubble consumed:</span><span id='bubbleConsumed'></span>
-    </p>
-    <p>
-        <span class='status'>quick consumed:</span><span id='quickConsumed'></span>
-    </p>
+    <div class='wrapper'>
+        <p>Sorting Algorithms</p>
+        <p>
+            <span>array size:</span><input type='text' class='size-input' id='arraySize' value='<%= arraySize%>'></input>
+        </p>
+        <p>
+            <input type='button' class='run-anchor' value='RUN!'></input>
+        </p>
+        <p>
+            <span class='status'>bubble consumed:</span><span id='bubbleConsumed'></span>
+        </p>
+        <p>
+            <span class='status'>quick consumed:</span><span id='quickConsumed'></span>
+        </p>
 
-    <p>
-        <span class='status'>merge consumed:</span><span id='mergeConsumed'></span>
-    </p>
+        <p>
+            <span class='status'>merge consumed:</span><span id='mergeConsumed'></span>
+        </p>
 
-    <p>
-        <span class='status'>native consumed:</span><span id='nativeConsumed'></span>
-    </p>
+        <p>
+            <span class='status'>native consumed:</span><span id='nativeConsumed'></span>
+        </p>
+    </div>
 
 	<script src="js/Algs.js"></script>
 	<script data-main="js/config" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.22/require.min.js"></script>

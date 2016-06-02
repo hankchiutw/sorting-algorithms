@@ -1,7 +1,7 @@
 "use strict";
 
 require.config({
-    baseUrl: '/',
+    baseUrl: '../',
     paths: {
         underscore: "//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min",
         jquery: "//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min",

@@ -4,13 +4,24 @@ define([
     "pillar"
 ], function(Pillar){
 
+    var model = Pillar.Model.create({
+        arraySize: 10
+    });
+
     var view = Pillar.View.create({
-        el: 'body'
+        events: {
+            'click .run-anchor': 'run',
+            'keyup .size-input': 'tryRun'
+        },
+        run: run,
+        tryRun: tryRun,
+        model: model,
+        selector: '.wrapper'
     });
 
     return function(){
         view.render();
-        run();
+        view.run();
     };
 
 });
@@ -18,7 +29,7 @@ define([
 
 function run(){
     var ar = [];
-    var size = parseInt(document.getElementById('arraySize').value);
+    var size = this.model.get('arraySize');
     var i;
     for(i = 0;i<size;i++){
         ar[i] = parseInt(Math.random()*10000000);
@@ -37,5 +48,6 @@ function run(){
 }
 
 function tryRun(e){
-    if(e.keyCode == 13) run();
+    this.model.set('arraySize', e.target.value);
+    if(e.keyCode == 13) this.run();
 }

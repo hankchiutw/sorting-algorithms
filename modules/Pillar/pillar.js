@@ -36,19 +36,19 @@ define([
          * @param {String} params.model
          */
         value: function(params){
-            if(typeof params.template == 'string') params.template = _.template(params.template);
+            if(params.selector !== undefined) params.template = $(params.selector).html();
+            if(typeof params.template != 'function') params.template = _.template(params.template || '');
             if(!params.render) params.render = function(){
                 var templateData = this.templateData;
                 if(this.model) templateData = this.model.attributes;
-                this.$el.html(this.template({templateData: templateData}));
+                this.$el.html(this.template(templateData));
                 return this;
             };
 
+            if(params.selector !== undefined) params.el = $(params.selector);
+
             var View = Pillar.View.extend(params);
-            return new View({
-                model: params.model,
-                el: $(params.selector)
-            });
+            return new View();
         }
     });
 
