@@ -1,12 +1,11 @@
 "use strict";
 
 require.config({
-    baseUrl: '../',
     paths: {
         underscore: "//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min",
         jquery: "//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min",
         backbone: "//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone-min",
-        pillar: "modules/Pillar/pillar",
+        pillar: "../modules/Pillar/pillar",
         text: "//cdnjs.cloudflare.com/ajax/libs/require-text/2.0.12/text.min"
     },
     shim: {
@@ -21,7 +20,7 @@ require.config({
 
 require([
     "pillar",
-    "js/main"
+    "main"
 ], function(Pillar, main){
 
     // init main page
