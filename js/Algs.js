@@ -6,9 +6,10 @@ var Algs = {
 };
 
 function bubble(arInput){
-    var i, j, tmp;
     var ar = arInput.slice(0);
     var start = Date.now();
+
+    var i, j, tmp;
     for(i = 0;i<ar.length;i++){
         for(j = 0;j<ar.length;j++){
             if(ar[i] < ar[j]){
@@ -19,15 +20,12 @@ function bubble(arInput){
         }
     }
 
-console.log('bubble result:', ar);
     return Date.now() - start;
 }
 
 function quick(arInput){
     var start = Date.now();
-    var ar = _quick(arInput);
-console.log('quick result:', ar);
-
+    _quick(arInput);
     return Date.now() - start;
 }
 
@@ -50,10 +48,7 @@ function _quick(arInput){
 
 function merge(arInput){
     var start = Date.now();
-    var ar = _merge(arInput);
-
-console.log('merge result:', ar);
-
+    _merge(arInput);
     return Date.now() - start;
 }
 
@@ -71,14 +66,6 @@ function _merge(arInput){
     var iR = 0;
     var ret = [];
     for(i = 0;i<arInput.length;i++){
-/*
-        if((left[0] !== undefined && left[0] <= right[0]) || right[0] === undefined ){
-            ret.push(left.shift());
-        }else
-            ret.push(right.shift());
-*/
-
-
         if((left[iL] !== undefined && left[iL] <= right[iR]) || right[iR] === undefined){
             ret.push(left[iL]);
             iL++;
