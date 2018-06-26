@@ -1,46 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-	<title>Sorting Algorithms</title>
+  <title>Sorting Algorithms</title>
 
-	<!-- meta -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/main.css">
-	
-
+  <link rel="stylesheet" href="css/main.css">
+  
 </head>
 <body>
-    <div class='wrapper'>
-        <p>Sorting Algorithms</p>
-        <p>
-            <span>array size:</span><input type='text' class='size-input' id='arraySize' value='<%= arraySize%>'></input>
-        </p>
-        <p>
-            <input type='button' class='run-anchor' value='RUN!'></input>
-        </p>
-        <p>
-            <span class='status'>bubble consumed:</span><span id='bubbleConsumed'></span>
-        </p>
-        <p>
-            <span class='status'>quick consumed:</span><span id='quickConsumed'></span>
-        </p>
+  <div class='wrapper'>
+    <p>Sorting Algorithms</p>
+    <p id='header'></p>
+    <p id='test-case'></p>
+    <p id='result'></p>
+  </div>
 
-        <p>
-            <span class='status'>merge consumed:</span><span id='mergeConsumed'></span>
-        </p>
-
-        <p>
-            <span class='status'>native consumed:</span><span id='nativeConsumed'></span>
-        </p>
-    </div>
-
-	<script src="js/Algs.js"></script>
-	<script data-main="js/config" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.22/require.min.js"></script>
+  <script src="js/algorithms/merge.js"></script>
+  <script src="js/algorithms/quick.js"></script>
+  <script src="js/algorithms/bubble.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
