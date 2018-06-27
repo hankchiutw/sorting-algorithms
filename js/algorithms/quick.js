@@ -11,14 +11,14 @@
         if(ar[i] <= pivot) left.push(ar[i]);
         else right.push(ar[i]);
     }
-    left = _quick(left);
-    right = _quick(right);
+    left = sort(left);
+    right = sort(right);
 
     return left.concat(pivot, right);
   }
 
   exports.quickSort = {
-    name: 'Quick Sort',
+    name: 'Quick',
     do: sort
   };
 })(window);

@@ -28,7 +28,7 @@
   }
 
   exports.mergeSort = {
-    name: 'Merge Sort',
+    name: 'Merge',
     do: sort
   };
 })(window);

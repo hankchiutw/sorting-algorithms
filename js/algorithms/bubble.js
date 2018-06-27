@@ -18,7 +18,7 @@
   }
 
   exports.bubbleSort = {
-    name: 'Bubble Sort',
+    name: 'Bubble',
     do: sort
   };
 })(window);
