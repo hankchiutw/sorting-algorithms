@@ -1,14 +1,21 @@
-/** globals mergeSort */
-
-const headerDom = document.getElementById('header');
-const resultDom = document.getElementById('result');
-const statusDom = document.getElementById('status');
-
 const dataSize = 10000;
+const header = new Vue({
+  el: '#header',
+  data: {
+    dataSize
+  }
+});
+
+const result = new Vue({
+  el: '#result',
+  data: {
+    items: {}
+  }
+});
+
 const arInput = (new Array(dataSize))
   .fill(0)
   .map(() => parseInt(Math.random()*dataSize));
-document.getElementById('data-size').innerHTML = `size: ${dataSize}`;
 
 testRunner(mergeSort, arInput)
   .then(() => {
@@ -19,17 +26,12 @@ testRunner(mergeSort, arInput)
   });
 
 function testRunner(alg, arInput) {
-  resultDom.innerHTML += `
-    <p class='result-${alg.name}'>
-      <span class='name'>${alg.name}</span>
-      <span class='spended'></span>
-    </p>
-  `;
   const start = Date.now();
   return new Promise((resolve) => {
     resolve(alg.do(arInput));
   }).then(() => {
     const spended = Date.now() - start;
-    resultDom.querySelector(`.result-${alg.name} .spended`).innerHTML = spended;
+    result.$set(result.items, alg.name, spended);
+    
   });
 }
