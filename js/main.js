@@ -17,21 +17,23 @@ const arInput = (new Array(dataSize))
   .fill(0)
   .map(() => parseInt(Math.random()*dataSize));
 
-testRunner(mergeSort, arInput)
-  .then(() => {
-    testRunner(quickSort, arInput);
-  })
-  .then(() => {
-    testRunner(bubbleSort, arInput);
-  });
+[
+  mergeSort,
+  quickSort,
+  bubbleSort
+].reduce(
+  (promiseChain, alg) => promiseChain.then(runnerFactory(alg)),
+  Promise.resolve(arInput)
+);
 
-function testRunner(alg, arInput) {
+function runnerFactory(alg) {
   const start = Date.now();
-  return new Promise((resolve) => {
-    resolve(alg.do(arInput));
-  }).then(() => {
-    const spended = Date.now() - start;
-    result.$set(result.items, alg.name, spended);
-    
-  });
+  return (arInput) => {
+    return new Promise((resolve) => {
+      alg.do(arInput);
+      const spended = Date.now() - start;
+      result.$set(result.items, alg.name, spended)
+      resolve(arInput);
+    });
+  };
 }
