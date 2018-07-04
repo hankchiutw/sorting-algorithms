@@ -17,8 +17,5 @@
     return ar;
   }
 
-  exports.bubbleSort = {
-    name: 'Bubble',
-    do: sort
-  };
+  exports.bubbleSort = new Alg('Bubble', sort);
 })(window);

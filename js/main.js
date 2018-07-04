@@ -9,7 +9,7 @@ const header = new Vue({
 const result = new Vue({
   el: '#result',
   data: {
-    items: {}
+    items: []
   }
 });
 
@@ -27,13 +27,15 @@ const arInput = (new Array(dataSize))
 );
 
 function runnerFactory(alg) {
-  const start = Date.now();
   return (arInput) => {
-    return new Promise((resolve) => {
-      alg.do(arInput);
-      const spended = Date.now() - start;
-      result.$set(result.items, alg.name, spended)
-      resolve(arInput);
-    });
+    return alg.do(arInput)
+      .then((spended) => {
+        result.items.push({
+          name: alg.name,
+          spended,
+          compared: alg.compared
+        });
+        return arInput;
+      });
   };
 }

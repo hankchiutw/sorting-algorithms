@@ -17,8 +17,5 @@
     return left.concat(pivot, right);
   }
 
-  exports.quickSort = {
-    name: 'Quick',
-    do: sort
-  };
+  exports.quickSort = new Alg('Quick', sort);
 })(window);

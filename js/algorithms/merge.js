@@ -1,4 +1,6 @@
 ((exports) => {
+  const alg = new Alg('Merge', sort);
+
   function sort(arInput){
     // copy the input
     let ar = arInput.slice(0);
@@ -41,8 +43,5 @@
     return ret;
   }
 
-  exports.mergeSort = {
-    name: 'Merge',
-    do: sort
-  };
+  exports.mergeSort = alg;
 })(window);

@@ -21,15 +21,18 @@
     <p>
       <span>Name</span>
       <span>Spended(ms)</span>
+      <span>Compared</span>
     </p>
-    <p v-for='(spended, name) in items' v-cloak>
-      <span>{{ name }}</span>
-      <span>{{ spended }}</span>
+    <p v-for='item in items' v-cloak>
+      <span>{{ item.name }}</span>
+      <span>{{ item.spended }}</span>
+      <span>{{ item.compared }}</span>
     </p>
   </div>
   <p id='status'></p>
 
   <script defer src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script defer src="js/libs/alg.js"></script>
   <script defer src="js/algorithms/merge.js"></script>
   <script defer src="js/algorithms/quick.js"></script>
   <script defer src="js/algorithms/bubble.js"></script>
