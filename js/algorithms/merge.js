@@ -21,9 +21,10 @@
   // pop one each time and compare
   function _merge(left, right) {
     let ret = [];
-    let lo = left.pop();
-    let hi = right.pop();
-    while(lo !== undefined && hi !== undefined) {
+    let lo = left.shift();
+    let hi = right.shift();
+    while(lo !== undefined || hi !== undefined) {
+      alg.onCompared();
       if (lo === undefined) {
         ret = ret.concat(hi, right);
         break;
@@ -34,10 +35,10 @@
 
       if (lo <= hi) {
         ret.push(lo);
-        lo = left.pop();
+        lo = left.shift();
       } else {
         ret.push(hi);
-        hi = right.pop();
+        hi = right.shift();
       }
     }
     return ret;

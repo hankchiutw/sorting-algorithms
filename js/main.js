@@ -29,7 +29,7 @@ const arInput = (new Array(dataSize))
 function runnerFactory(alg) {
   return (arInput) => {
     return alg.do(arInput)
-      .then((spended) => {
+      .then(({sorted, spended}) => {
         result.items.push({
           name: alg.name,
           spended,

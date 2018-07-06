@@ -9,9 +9,9 @@
     do(arInput) {
       const start = Date.now();
       return new Promise((resolve) => {
-        this._do(arInput);
+        const sorted = this._do(arInput);
         const spended = Date.now() - start;
-        resolve(spended);
+        resolve({sorted, spended});
       });
     }
 
