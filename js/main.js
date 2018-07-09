@@ -18,7 +18,8 @@ const arInput = (new Array(dataSize))
   .map(() => parseInt(Math.random()*dataSize));
 
 [
-  mergeSort,
+  mergeSort1,
+  mergeSort2,
   quickSort,
   bubbleSort
 ].reduce(
@@ -28,7 +29,7 @@ const arInput = (new Array(dataSize))
 
 function runnerFactory(alg) {
   return (arInput) => {
-    return alg.do(arInput)
+    return alg.do([].concat(arInput))
       .then(({sorted, spended}) => {
         result.items.push({
           name: alg.name,
