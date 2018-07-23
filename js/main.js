@@ -16,6 +16,7 @@ const result = new Vue({
 const arInput = (new Array(dataSize))
   .fill(0)
   .map(() => parseInt(Math.random()*dataSize));
+const arSorted = [].concat(arInput).sort((a, b) => a - b);
 
 [
   mergeSort1,
@@ -31,6 +32,13 @@ function runnerFactory(alg) {
   return (arInput) => {
     return alg.do([].concat(arInput))
       .then(({sorted, spended}) => {
+        // check result
+        const shouldSort = arSorted.every((v, i) => {
+          return sorted[i] === v;
+        });
+        if (!shouldSort) {
+          console.warn('Sort wrong:', alg.name);
+        }
         result.items.push({
           name: alg.name,
           spended,

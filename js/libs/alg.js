@@ -4,6 +4,10 @@
       this.name = name;
       this._do = callback;
       this.compared = 0;
+
+      this.onCompared = () => {
+        this.compared++;
+      };
     }
 
     do(arInput) {
@@ -13,10 +17,6 @@
         const spended = Date.now() - start;
         resolve({sorted, spended});
       });
-    }
-
-    onCompared() {
-      this.compared++;
     }
   }
 
